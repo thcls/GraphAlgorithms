@@ -1,5 +1,5 @@
 from sys import maxsize
-from untils import printweight
+from utils import printweight
 
 def dijkstra(graph, sourse):
     prev = []

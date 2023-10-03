@@ -2,7 +2,7 @@ from os import listdir
 from json import load
 
 from graphs_implementation.vertices import Vertex
-from untils import *
+from utils import *
 
 from shortest_path_algorithms.bellman_ford import bellman_Ford
 from shortest_path_algorithms.dijkstra import dijkstra

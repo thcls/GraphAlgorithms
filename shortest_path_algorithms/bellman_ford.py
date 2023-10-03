@@ -1,5 +1,5 @@
 from sys import maxsize
-from untils import printweight
+from utils import printweight
 
 def bellman_Ford(graph, sourse):
     for vertex in graph:
