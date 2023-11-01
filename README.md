@@ -17,15 +17,6 @@ A entrada do programa principal é baseada na leitura de um arquivo de texto com
 
 O peso de cada aresta pode ser um número real positivo ou negativo, ou mesmo infinito, indicado como o valor máximo representável pela linguagem de programação escolhida. Essa estrutura de entrada permite a definição precisa de grafos ponderados e é a base para a construção e manipulação do grafo no programa.
 
-## Representação do Grafo:
-
-Após a leitura do arquivo de entrada, o programa gera uma estrutura de representação do grafo. Essa representação pode ser uma lista de adjacências ou uma matriz de adjacências, dependendo da escolha do usuário.
-
-- `Lista de Adjacências`: Nessa representação, o grafo é armazenado como uma lista de listas, onde cada vértice é associado a uma lista de seus vizinhos. Essa estrutura é eficiente para grafos esparsos, onde o número de arestas é muito menor do que o número de possíveis arestas.
-- `Matriz de Adjacências`: Nessa representação, o grafo é armazenado em uma matriz bidimensional, onde cada elemento (i, j) da matriz representa a presença de uma aresta entre os vértices i e j. Os pesos das arestas são armazenados nos elementos correspondentes da matriz. Essa estrutura é eficiente para grafos densos, onde o número de arestas é próximo do número máximo possível de arestas.
-
-A escolha entre lista de adjacências e matriz de adjacências depende das características do grafo e dos requisitos do problema a ser resolvido.
-
 ## Operações Básicas:
 
 Este projeto implementa as seguintes operações básicas para manipulação de grafos ponderados:
@@ -69,3 +60,8 @@ Este projeto implementa três algoritmos relacionados à busca de caminhos míni
 - `CaminhoMinimo(G, vi, vj)`: Este algoritmo devolve um caminho mínimo, que é uma sequência de vértices, entre o vértice vi e o vértice vj no grafo G. O caminho mínimo é calculado com base nos pesos das arestas.
 - `CustoMinimo(G, v)`: Este algoritmo calcula os custos dos caminhos mínimos a partir de um vértice v para todos os outros vértices no grafo G. Ele retorna uma estrutura de dados que associa cada vértice alcançável a partir de v com o custo mínimo para atingir esse vértice.
 - `CaminhoMinimo(G, v)`: Este algoritmo calcula os caminhos mínimos entre um vértice v e todos os outros vértices do grafo G. Ele retorna uma estrutura de dados que associa cada vértice alcançável.
+
+## Utilitário:
+
+- `Eciclo(G)`: Verifica se o grafo G contém um ciclo.
+- `salvarGrafo(G, nome):`: Salva o grafo G em um arquivo txt com o nome especificado.
