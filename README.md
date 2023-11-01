@@ -63,5 +63,8 @@ Este projeto implementa três algoritmos relacionados à busca de caminhos míni
 
 ## Utilitário:
 
+Este projeto implementa algumas funções utilitárias para a manipulação de grafos:
+
+- `addVertice(G, v)`: Adiciona um novo vértice ao grafo G.
 - `Eciclo(G)`: Verifica se o grafo G contém um ciclo.
 - `salvarGrafo(G, nome):`: Salva o grafo G em um arquivo txt com o nome especificado.
