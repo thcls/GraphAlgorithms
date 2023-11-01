@@ -13,8 +13,7 @@ def Grafo(G):
     for index,file in enumerate(files):
         print(f'( {index} ) | {file}')
         
-    #num = int(input('Escolha um Grafo: '))
-    num = 1
+    num = int(input('Escolha um Grafo: '))
     
     with open(f'src/grafos/{files[num]}', 'r') as arquivo:
         
