@@ -1,0 +1,14 @@
+Arvore 13 12
+
+c b 2
+c d 4
+d a 5
+d e 6
+a f 2
+a g 4
+e h 2
+e i 5
+f j 8
+f k 7
+i l 9
+i m 7

@@ -1,0 +1,12 @@
+Grafo 8 10
+
+a b 2
+a c 3
+b d 1
+b e -4
+c f 2
+c g 3
+d h 1
+e h 2
+f h -3
+g h 4
