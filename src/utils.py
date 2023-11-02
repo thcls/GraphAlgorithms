@@ -3,6 +3,7 @@ from src.Graph import Vertice
 def addVertice(G, v):
     u = Vertice(v)
     G.vertices[v] = u
+    G.n += 1
 
 def DSF_visitado(v, u, visitados, arvore):
     visitados[u.nome] = True
@@ -36,7 +37,7 @@ def Eciclo(G):
     return False
 
 def salvarGrafo(G, nome):
-    with open(f'src/grafos/{nome}', 'w') as f:
+    with open(f'src/grafos/{nome}.txt', 'w') as f:
         f.write(f"{nome} {G.n} {G.m}\n")
         f.write('\n')
         for key in G.vertices.keys():

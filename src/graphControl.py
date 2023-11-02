@@ -13,7 +13,7 @@ def Grafo(G):
     for index,file in enumerate(files):
         print(f'( {index} ) | {file}')
         
-    num = int(input('Escolha um Grafo: '))
+    num = int(input('\nEscolha um Grafo: '))
     
     with open(f'src/grafos/{files[num]}', 'r') as arquivo:
         
@@ -33,8 +33,8 @@ def Grafo(G):
         grafoHeader = grafoData.pop(0)
         
         G.nome = grafoHeader[0]
-        G.n = int(grafoHeader[1])
-        G.m = int(grafoHeader[2])
+        G.n = 0
+        G.m = 0
         
         for e in grafoData:
             if not EVertice(G, e[0]):
@@ -43,7 +43,7 @@ def Grafo(G):
                 addVertice(G, e[1])
                 
             AddAresta(G, e[0], e[1], e[2])
-                
+        
     return G
 
 def EVertice(G, v):
@@ -59,6 +59,7 @@ def AddAresta(G, vi, vj , w):
         'peso': w,
         'vertice': vj
     })
+    G.m += 1
 
 def RemoveAresta(G, vi, vj , w):
     if not( EVertice(G, vi) and EVertice(G, vj) and ExisteAresta(G, vi, vj , w)):
@@ -68,7 +69,8 @@ def RemoveAresta(G, vi, vj , w):
     for index,e in enumerate(vi.arestas):
         if e['peso'] == w and e['vertice'].nome == vj:
             vi.arestas.pop(index)
-
+    G.m -= 1
+    
 def ExisteAresta(G, vi, vj , w):
     vi = G.vertices[vi]
     for e in vi.arestas:
@@ -88,6 +90,7 @@ def MudaPeso(G, vi, vj , w, novoW):
     return False
 
 def ImprimeGrafo(G):
+    print(f'\n  ___ Nome: {G.nome} n: {G.n} m: {G.m} ___  ')
     for key in G.vertices.keys():
         v = G.vertices[key]
         print(f'\n____________ vertice: { v.nome } ____________\n')
@@ -155,6 +158,9 @@ def Complemento(G):
     keys = G.vertices.keys()
     
     Gi = Graph()
+    Gi.m = 0
+    Gi.nome = G.nome + "'"
+    
     for key in keys:
         addVertice(Gi,key)
         
@@ -166,6 +172,7 @@ def Complemento(G):
                     continue
                 else:
                     AddAresta(Gi, key, key2, 1)
+                    Gi.m += 1
     return Gi
 
 def EAdj(G, vi, vj ):
