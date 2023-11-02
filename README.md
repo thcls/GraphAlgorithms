@@ -4,7 +4,7 @@ Implementações de algoritmos destinados a lidar com grafos ponderados.
 
 ## Leitura de Grafo a partir de um Arquivo de Texto:
 
-A entrada do programa principal é baseada na leitura de um arquivo de texto com o seguinte formato:
+*Durante a execução é possível escolher qual arquivo de texto o programa principal irá operar. O arquivo deve ser localizado em /GraphAlgorithms/src/grafos* e seguir o formato descrito abaixo:
 
 1. A primeira linha contém três campos:
     - Uma string que indica o nome do grafo (por exemplo, G, H, G1, etc.).
@@ -65,6 +65,6 @@ Este projeto implementa três algoritmos relacionados à busca de caminhos míni
 
 Este projeto implementa algumas funções utilitárias para a manipulação de grafos:
 
-- `addVertice(G, v)`: Adiciona um novo vértice ao grafo G.
-- `Eciclo(G)`: Verifica se o grafo G contém um ciclo.
-- `salvarGrafo(G, nome):`: Salva o grafo G em um arquivo txt com o nome especificado.
+- `addVertice(G, v, i)`: Adiciona um novo vértice ao grafo G e incrementa o número de vértices n do grafo em  i.
+- `Eciclo(G)`: Verifica se o grafo G contém um ciclo usando BSF.
+- `salvarGrafo(G, nome):`: Salva o grafo G em um arquivo txt com o nome especificado no formato descrito no início.
