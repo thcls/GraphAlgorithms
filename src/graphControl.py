@@ -1,12 +1,13 @@
 from sys import maxsize
-from src.Graph import Graph, Vertice
+from src.Graph import Graph
 from os import listdir
 from src.utils import *
 
 def NovoGrafo():
     G = Graph()
-    v = Vertice('v1')
-    G.vertices[v.nome] = v
+    addVertice(G, 'v1')
+    
+    return G
 
 def Grafo(G):
     files = listdir('src/grafos')
@@ -41,7 +42,7 @@ def Grafo(G):
                 addVertice(G, e[0])
             if not EVertice(G, e[1]):
                 addVertice(G, e[1])
-                
+
             AddAresta(G, e[0], e[1], e[2])
         
     return G
@@ -86,8 +87,6 @@ def MudaPeso(G, vi, vj , w, novoW):
     for index, e in enumerate(vi.arestas):
         if e['peso'] == w and e['vertice'].nome == vj:
             vi.arestas[index]['peso'] = novoW
-            
-    return False
 
 def ImprimeGrafo(G):
     print(f'\n  ___ Nome: {G.nome} n: {G.n} m: {G.m} ___  ')
@@ -96,10 +95,10 @@ def ImprimeGrafo(G):
         print(f'\n____________ vertice: { v.nome } ____________\n')
         for e in v.arestas:
             print(f'{v.nome} -----({e['peso']})-----> {e['vertice'].nome}')
-            
+
 def RemoveGrafo(G):
     for key in G.vertices.keys():
-        del G.vertices
+        del G.vertices[key]
     del G
 
 def RecuperaPeso(G, vi, vj ):
@@ -120,12 +119,12 @@ def GrafoSimples(G):
         arestas = Incidencia(G, key)
         for e in arestas:
             for i in arestas:
-                if e['vertice'].nome == i['vertice'].nome:
+                if e['vertice'].nome == i['vertice'].nome and e != i:
                     return False
     return True
 
 def EArvore(G):
-    return Eciclo(G) and G.m == G.n - 1 and conexo(G)
+    return Eciclo(G) and Conexo(G)
 
 def EBipartido(G):
     keys = G.vertices.keys()
@@ -150,6 +149,7 @@ def EBipartido(G):
                 visitados[u.nome] = cor
             elif visitados[u.nome] == visitados[vi.nome]:
                 return False
+            
         lista.pop(0)
         
     return True
@@ -241,7 +241,7 @@ def ImprimeMatrizAdj(G):
             print(f'  {matrizAdj[i][j]}  ', end='')
         print('')
 
-def conexo(G):
+def Conexo(G):
     keys = G.vertices.keys()
     visitados = dict(zip(keys, [False]*G.n))
     keys = list(keys)

@@ -1,4 +1,5 @@
 from src.Graph import Vertice
+from os import listdir
 
 def addVertice(G, v):
     u = Vertice(v)
@@ -37,6 +38,9 @@ def Eciclo(G):
     return False
 
 def salvarGrafo(G, nome):
+    if f'{nome}.txt' in listdir('src/grafos'):
+        print(f'Ja existe um grafo com nome {nome}.')
+        return
     with open(f'src/grafos/{nome}.txt', 'w') as f:
         f.write(f"{nome} {G.n} {G.m}\n")
         f.write('\n')

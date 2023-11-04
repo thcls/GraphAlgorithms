@@ -3,9 +3,9 @@ class Graph:
         self.nome  = ''
         self.n = 0
         self.m = 0
-        self.vertices = {}
+        self.vertices = {} # 'vi': vi
 
 class Vertice:
     def __init__(self, nome) -> None:
         self.nome  = nome
-        self.arestas = []
+        self.arestas = [] # {'peso': w,'vertice': vi}
